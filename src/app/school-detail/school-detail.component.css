@@ -1,0 +1,6 @@
+::ng-deep .mat-tab-label, ng-deep .mat-tab-label-active{
+    min-width: 0px!important;
+    padding: 0px!important;
+    margin: 20px!important;
+    font-size:18px;
+   }
