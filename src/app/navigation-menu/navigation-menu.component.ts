@@ -16,13 +16,13 @@ import { AngularStickyThingsModule } from '../directives/angular-sticky-things.m
   styleUrls: ['./navigation-menu.component.css']
 })
 export class NavigationMenuComponent implements OnInit {
-  
+
 
   navMenu: string[];
 
   constructor() {
-    this.navMenu = ['Home','About Us', 'Contact'];
-    
+    this.navMenu = ['Home', 'About Us', 'Contact'];
+
     }
 
     ngOnInit() {

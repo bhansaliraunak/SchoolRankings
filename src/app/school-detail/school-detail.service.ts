@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class SchoolDetailService {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   private apiUrl = 'http://localhost:8000/api/v1/schools/';
 
@@ -15,8 +15,8 @@ export class SchoolDetailService {
 
 
   getSchool(id): Observable<SchoolData[]> {
-      
-      return this.http.get<SchoolData[]>(this.apiUrl+id).pipe( map(items => items));
+
+      return this.http.get<SchoolData[]>(this.apiUrl + id).pipe( map(items => items));
   }
 
 }
