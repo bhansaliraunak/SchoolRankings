@@ -34,25 +34,14 @@ export class DashboardComponent implements OnInit {
     }
 
     getData(page: number){
-      this.http.get('http://localhost:8000/api/v1/schools?page= '+this.page)
+      this.http.get('http://localhost:8000/api/v1/schools')
             .pipe(map((response: any) => response))
             .subscribe((data: any) => {
 
               console.log('Data: ',data);
                 // set items to json response
-                if(data.length>0){
-                  for(let i=0; i<data.length; i++){
-                    this.allItems.push(data[i]);
-                } 
-              
-
-                    this.setPage(1);
-                    this.getData(this.page++);
-                }
-              
-                 
-            
-                               
+                    this.allItems = data;
+                    this.setPage(1);                         
             });
     }
 
