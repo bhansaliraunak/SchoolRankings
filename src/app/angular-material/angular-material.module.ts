@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule, MatCheckboxModule,MatMenuModule,MatCardModule
+    MatButtonModule, MatCheckboxModule, MatMenuModule, MatCardModule
   ],
   exports: [ MatButtonModule, MatCheckboxModule, MatMenuModule, MatCardModule ],
 })

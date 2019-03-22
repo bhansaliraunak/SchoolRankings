@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 
 import { PagerService } from '../services/pager.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,26 +12,22 @@ import { PagerService } from '../services/pager.service';
 })
 export class DashboardComponent implements OnInit {
 
+  constructor(private http: HttpClient, private pagerService: PagerService) {}
 
-  constructor(private http: HttpClient, private pagerService: PagerService) { }
+  // array of all items to be paged
+  private allItems = new Array();
+  data = [];
 
-    // array of all items to be paged
-    private allItems = new Array();
+  // pager object
+  pager: any = {};
 
-    data =[];
+  // paged items
+  pagedItems: any[];
 
-    // pager object
-    pager: any = {};
-
-    // paged items
-    pagedItems: any[];
-
-    page=1;
-
-    ngOnInit() {
-        this.getData(this.page);
-    }
-
+  ngOnInit() {
+    this.getData();
+  }
+ 
     getData(page: number){
       this.http.get('http://localhost:8000/api/v1/schools')
             .pipe(map((response: any) => response))
@@ -45,13 +40,15 @@ export class DashboardComponent implements OnInit {
             });
     }
 
-    setPage(page: number) {
-        // get pager object from service
-        console.log(this.allItems);
-        this.pager = this.pagerService.getPager(this.allItems.length, page);
-      
-        // get current page of items
-        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex+1);
-    }
+  setPage(page: number) {
+    // get pager object from service
+    console.log(this.allItems);
+    this.pager = this.pagerService.getPager(this.allItems.length, page);
 
+    // get current page of items
+    this.pagedItems = this.allItems.slice(
+      this.pager.startIndex,
+      this.pager.endIndex + 1
+    );
   }
+}
