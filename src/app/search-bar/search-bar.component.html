@@ -4,13 +4,26 @@
 <div class="container">
 
 <h2 style="color:#ff7400; text-align: center">SCHOOL RANKINGS</h2>
-<div class="single_sidebar_widget search_widget" >
+
+
+<div class="single_sidebar_widget search_widget">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Schools...">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+        <input #nameInput matInput type="text" class="form-control" placeholder="Search Schools..." [formControl]="stateCtrl" [matAutocomplete]="auto" >
+         <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+        <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+        <span>{{state.name}}</span> |
+        <small>Population: {{state.population}}</small>
+      </mat-option>
+    </mat-autocomplete>
+
+
+        <span class="input-group-btn" >
+            <button  [routerLink]="['/school',school[0]?._id]" class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
         </span>
     </div><!-- /input-group -->
 </div>
+
+
 </div>   
 </section>
