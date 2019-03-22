@@ -24,31 +24,21 @@ export class DashboardComponent implements OnInit {
   // paged items
   pagedItems: any[];
 
-  page = 1;
-
   ngOnInit() {
-    this.getData(this.page);
+    this.getData();
   }
+ 
+    getData(page: number){
+      this.http.get('http://localhost:8000/api/v1/schools')
+            .pipe(map((response: any) => response))
+            .subscribe((data: any) => {
 
-  getData(page: number) {
-    this.http
-      .get('http://localhost:8000/api/v1/schools?page= ' + this.page)
-      .pipe(map((response: any) => response))
-      .subscribe((data: any) => {
-        console.log('Data: ', data);
-
-        // set items to json response
-        const len = Object.keys(data).length;
-        if (len > 0) {
-          // tslint:disable-next-line:prefer-for-of
-          for (let i = 0; i < len; i++) {
-            this.allItems.push(data[i]);
-          }
-          this.setPage(1);
-          this.getData(this.page++);
-        }
-      });
-  }
+              console.log('Data: ',data);
+                // set items to json response
+                    this.allItems = data;
+                    this.setPage(1);                         
+            });
+    }
 
   setPage(page: number) {
     // get pager object from service
