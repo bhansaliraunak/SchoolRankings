@@ -1,66 +1,62 @@
 <app-navigation-menu></app-navigation-menu>
-<app-search-bar></app-search-bar>
+<app-search-bar (searched)="onSearched($event)"></app-search-bar>
 
 <section class="blog_area">
-    <div class="container">
-        <div class="row">
-            <!-- Here begin Main Content -->
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="list-event-item" *ngFor="let item of pagedItems">
-                            <div class="box-content-inner clearfix">
-                                <div class="list-event-thumb">
-                                    <a>
-                                        <img src="/assets/image/school_logo.jpg" alt="">
-                                    </a>
-                                </div>       
-                                <div class="list-event-header">  
-                                    <span class="event-place"><i class="fas fa-globe"></i>{{item?.school_cityarea}}</span>
-                                    <span class="event-place"><i
-                                            [ngClass]="(item?.school_admission_status=='Open')?'fa fa-thumbs-up': (item?.school_admission_status=='Close')?'fa fa-thumbs-down':'fa fa-exclamation-triangle'"></i>Admissions
-                                        {{item?.school_admission_status}}</span>
-                                    
-                                    <div class="view-details"><a [routerLink]="['/school',item?._id]"
-                                            class="genric-btn primary">Book Your Seat</a></div>
-                                    <div class="calendar-small">
-                                        <span class="s-month">Rank</span>
-                                        <span class="s-date">{{item?.school_ranking}}</span>
-                                    </div>
-                                </div>
-                                <h5 class="event-title"><a
-                                        [routerLink]="['/school',item?._id]">{{item?.school_name}}</a></h5>
-                                <p>Pre-Primary | Primary | Middle | Secondary | Senior Secondary</p>
-                            </div> <!-- /.box-content-inner -->  
-                        </div> <!-- /.list-event-item -->
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-pull-0">
+        <div class="list-event-item" *ngFor="let item of pagedItems">
+          <div class="box-content-inner clearfix">
+            <div class="list-event-thumb">
+              <a>
+                <img src="/assets/image/school_logo.jpg" alt="">
+              </a>
             </div>
-            <div class="col-md-8">
-                <div class="blog_left_sidebar">
-                    <nav class="blog-pagination justify-content-center d-flex">
-                        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
-                                <a (click)="setPage(pager.currentPage - 1)" class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">
-                                        <span class="lnr lnr-chevron-left"></span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="page-item active" *ngFor="let page of pager.pages"
-                                [ngClass]="{active:pager.currentPage === page}"><a (click)="setPage(page)"
-                                    class="page-link">{{page}}</a></li>
-                            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                                <a (click)="setPage(pager.currentPage + 1)" class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <span class="lnr lnr-chevron-right"></span>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+            <div class="list-event-header">
+              <span class="event-place"><i class="fas fa-globe"></i>{{item?.school_cityarea}}</span>
+              <span class="event-place"><i
+                  [ngClass]="(item?.school_admission_status=='Open')?'fa fa-thumbs-up': (item?.school_admission_status=='Close')?'fa fa-thumbs-down':'fa fa-exclamation-triangle'"></i>Admissions
+                {{item?.school_admission_status}}</span>
+
+              <div class="view-details"><a [routerLink]="['/school',item?._id]" class="genric-btn primary">Book Your
+                  Seat</a></div>
+              <div class="calendar-small">
+                <span class="s-month">Rank</span>
+                <span class="s-date">{{item?.school_ranking}}</span>
+              </div>
             </div>
-        </div>
+            <h5 class="event-title"><a [routerLink]="['/school',item?._id]">{{item?.school_name}}</a></h5>
+            <p>Pre-Primary | Primary | Middle | Secondary | Senior Secondary</p>
+          </div> <!-- /.box-content-inner -->
+        </div> <!-- /.list-event-item -->
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-8 col-md-pull-0">
+        <div class="blog_left_sidebar">
+          <nav class="blog-pagination justify-content-center d-flex">
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)" class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">
+                    <span class="lnr lnr-chevron-left"></span>
+                  </span>
+                </a>
+              </li>
+              <li class="page-item active" *ngFor="let page of pager.pages"
+                [ngClass]="{active:pager.currentPage === page}"><a (click)="setPage(page)"
+                  class="page-link">{{page}}</a></li>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)" class="page-link" aria-label="Next">
+                  <span aria-hidden="true">
+                    <span class="lnr lnr-chevron-right"></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

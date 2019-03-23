@@ -132,5 +132,10 @@
       }
     }
   },
-  "defaultProject": "school-rankings-app"
+  "defaultProject": "school-rankings-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
