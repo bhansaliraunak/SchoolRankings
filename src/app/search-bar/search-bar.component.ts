@@ -1,16 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {Router} from '@angular/router'
-import {SchoolDetailService} from '../school-detail/school-detail.service';
+import { Component, OnInit, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Router } from '@angular/router'
+import { SchoolDetailService } from '../services/school-detail.service';
 import { SchoolData } from '../model/school';
 
 
 export interface State {
   flag: string;
   name: string;
-  population: string;
+  city: string;
+  state: string
 }
 
 @Component({
@@ -29,38 +30,44 @@ export class SearchBarComponent implements OnInit {
   states: State[] = [
     {
       name: 'Gurukul',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+      city: 'Jodhpur',
+      state: 'Rajasthan',
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+    },
+    {
+      name: 'DPS',
+      city: 'Jodhpur',
+      state: 'Rajasthan',
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+    },
+    {
+      name: 'Euro',
+      city: 'Pune',
+      state: 'Maharashtra',
       flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
     }
   ];
-  constructor(private router: Router, private schoolDetailService: SchoolDetailService) { 
+
+  constructor(private router: Router, private schoolDetailService: SchoolDetailService) {
     this.filteredStates = this.stateCtrl.valueChanges
-    .pipe(
-      startWith(''),
-      map(state => state ? this._filterStates(state) : this.states.slice())
-    );
+      .pipe(
+        startWith(''),
+        map(state => state ? this._filterStates(state) : this.states.slice())
+      );
   }
 
-  ngOnInit() {
-    this.getNameValue();
-  }
+  ngOnInit() { }
 
-  getNameValue(){
-    if(this.nameInput.nativeElement.value){
-    console.log('Get Value:', this.nameInput.nativeElement.value);
-    this.schoolDetailService.getSchoolByName(this.nameInput.nativeElement.value).subscribe((data)=> this.school = data);
-    }
+  async getNameValue() {
+    await this.schoolDetailService.getSchoolByName(this.nameInput.nativeElement.value).subscribe((data) => {
+        this.router.navigate(['/school', data[0]._id]); 
+    });
+   
   }
-
 
   private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
-
     return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
-
-
-
 
 }

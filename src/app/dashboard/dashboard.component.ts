@@ -37,8 +37,6 @@ export class DashboardComponent implements OnInit {
       this.http.get('http://localhost:8000/api/v1/schools')
             .pipe(map((response: any) => response))
             .subscribe((data: any) => {
-
-              console.log('Data: ',data);
                 // set items to json response
                     this.allItems = data;
                     this.setPage(1);                         
@@ -47,7 +45,6 @@ export class DashboardComponent implements OnInit {
 
     setPage(page: number) {
         // get pager object from service
-        console.log(this.allItems);
         this.pager = this.pagerService.getPager(this.allItems.length, page);
       
         // get current page of items

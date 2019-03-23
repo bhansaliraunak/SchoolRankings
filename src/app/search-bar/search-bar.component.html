@@ -13,13 +13,18 @@
       <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
         <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
         <span>{{state.name}}</span> |
-        <small>Population: {{state.population}}</small>
+        <small>{{state.city}}</small> |
+        <small>{{state.state}}</small>
       </mat-option>
     </mat-autocomplete>
 
 
         <span class="input-group-btn" >
-            <button  [routerLink]="['/school',school[0]?._id]" class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+            <button (click)=" getNameValue();" class="btn btn-default" type="button">
+                <i class="lnr lnr-magnifier">
+
+                </i>
+            </button>
         </span>
     </div><!-- /input-group -->
 </div>
