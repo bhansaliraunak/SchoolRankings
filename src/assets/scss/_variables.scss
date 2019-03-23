@@ -5,6 +5,7 @@ $pop: 'Poppins', sans-serif;
 /*Color Variables*/
 $dark: #222222;
 $yellow: #f3c300;
+$orange: #ff7400;
 $light_blue: #52c5fd;
 
 
@@ -13,7 +14,7 @@ $light_blue: #52c5fd;
 
 // Mixins
 @mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
-    transition: $property $duration $animate $delay; 
+    transition: $property $duration $animate $delay;
 }
 
 // Placeholder Mixins

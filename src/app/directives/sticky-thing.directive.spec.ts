@@ -10,12 +10,12 @@ import { By } from '@angular/platform-browser';
 
 export class TestFloatingContainer {}
 
-  
+
 describe('Directive: StickyThingDirective', () => {
 
   let component: TestFloatingContainer;
   let fixture: ComponentFixture<TestFloatingContainer>;
-  let inputEl: DebugElement; 
+  let inputEl: DebugElement;
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestFloatingContainer, StickyThingDirective]
@@ -23,7 +23,7 @@ describe('Directive: StickyThingDirective', () => {
     fixture = TestBed.createComponent(TestFloatingContainer);
     component = fixture.componentInstance;
     inputEl = fixture.debugElement.query(By.directive(StickyThingDirective));
-    
+
   });
-  
+
 });

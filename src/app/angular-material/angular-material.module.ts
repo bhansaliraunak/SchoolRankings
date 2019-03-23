@@ -13,7 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
     MatCardModule,
@@ -24,10 +24,10 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule
   ],
-  exports: [ MatButtonModule, 
-    MatCheckboxModule, 
-    MatMenuModule, 
-    MatCardModule, 
+  exports: [ MatButtonModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatCardModule,
     MatTabsModule,
     MatDividerModule,
     MatBadgeModule,

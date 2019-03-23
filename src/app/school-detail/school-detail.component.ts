@@ -10,15 +10,14 @@ import { SchoolData } from '../model/school';
   providers: [SchoolDetailService]
 })
 export class SchoolDetailComponent implements OnInit {
-
   school: SchoolData[];
   id: Number;
-  
+
   public pie_ChartData = [
     ['Students', 'Seats'],
-    ["Total Seats (150)", 150],
-    ["Applied (80)", 80],
-    ["Accepted (50)", 50]
+    ['Total Seats (150)', 150],
+    ['Applied (80)', 80],
+    ['Accepted (50)', 50]
   ];
 
   public pie_ChartOptions = {
@@ -35,13 +34,17 @@ export class SchoolDetailComponent implements OnInit {
         0: { side: 'top', label: 'Students' } // Top x-axis.
       }
     },
-    bar: { groupWidth: "50%" }
+    bar: { groupWidth: '50%' }
   };
 
-  constructor(private _activatedRoute: ActivatedRoute, private route: Router, private schoolDetailService: SchoolDetailService) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private route: Router,
+    private schoolDetailService: SchoolDetailService
+  ) {}
 
   ngOnInit() {
-    this.id = this._activatedRoute.snapshot.params['id'];
+    this.id = this._activatedRoute.snapshot.params.id;
     this.getSchool(this.id);
   }
 
@@ -49,9 +52,5 @@ export class SchoolDetailComponent implements OnInit {
     await this.schoolDetailService.getSchoolById(this.id).subscribe(data => {
       this.school = data;
     });
-
   }
-
 }
-
-

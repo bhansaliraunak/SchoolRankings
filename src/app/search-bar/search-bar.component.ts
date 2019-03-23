@@ -1,26 +1,35 @@
-import { Component, OnInit, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { Router } from '@angular/router'
-import { SchoolDetailService } from '../services/school-detail.service';
-import { SchoolData } from '../model/school';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {Router} from '@angular/router';
+import {SchoolDetailService} from '../school-detail/school-detail.service';
+import { SchoolData, School } from '../model/school';
+import { SchoolService } from '../services/school.service';
 
 
 export interface State {
   flag: string;
   name: string;
   city: string;
-  state: string
+  state: string;
 }
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.css'],
+  styleUrls: ['./search-bar.component.scss'],
   providers: [SchoolDetailService]
 })
 export class SearchBarComponent implements OnInit {
+
+  constructor(private router: Router, private schoolDetailService: SchoolDetailService, private schoolService: SchoolService) {
+    this.filteredStates = this.stateCtrl.valueChanges
+    .pipe(
+      startWith(''),
+      map(state => state ? this._filterStates(state) : this.states.slice())
+    );
+  }
 
   @ViewChild('nameInput') nameInput: ElementRef;
   stateCtrl = new FormControl();
@@ -48,26 +57,45 @@ export class SearchBarComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router, private schoolDetailService: SchoolDetailService) {
-    this.filteredStates = this.stateCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        map(state => state ? this._filterStates(state) : this.states.slice())
-      );
-  }
+  // Search Form
+  public searchForm = new FormGroup({
+    term: new FormControl()
+  });
+
+  @Output() searched = new EventEmitter<School[]>();
 
   ngOnInit() { }
 
-  async getNameValue() {
-    await this.schoolDetailService.getSchoolByName(this.nameInput.nativeElement.value).subscribe((data) => {
-        this.router.navigate(['/school', data[0]._id]); 
-    });
-   
+  getNameValue() {
+    if (this.nameInput.nativeElement.value) {
+    console.log('Get Value:', this.nameInput.nativeElement.value);
+    this.schoolDetailService.getSchoolByName(this.nameInput.nativeElement.value).subscribe((data) => this.school = data);
+    }
   }
 
   private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
     return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
+
+  onSubmit() {
+    console.warn(this.searchForm.value);
+    if (this.searchForm.valid) {
+      // retrieve the schools
+      this.schoolService.searchSchools(this.searchForm.controls.term.value).subscribe(
+        data => {
+          console.log('data loaded, count' + data.length);
+          this.searched.emit(data);
+        },
+        err => {
+          // TODO handle error
+        },
+        () => {
+          console.log('done');
+        }
+      );
+    }
+  }
+
 
 }
