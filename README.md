@@ -69,7 +69,7 @@ C:\Program Files\Git\mingw64\bin;<br>&nbsp;&nbsp;&nbsp;&nbsp;C:\Program Files\Gi
 
 ## Connect
 
-Developers can connect for internships or research & development programs at rishimehta365@gmail.com. <br>
+Developers can connect for internships or research & development programs at schoolrankingsglobal@gmail.com. <br>
 Kindly put into subject header of electronic mail as: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;R&D:SR:[your-name] <br>
 &nbsp;&nbsp;&nbsp;&nbsp;Internship:SR:[your-name] <br>
