@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatBadgeModule } from '@angular/material/badge';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
@@ -43,12 +41,12 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatTabsModule,
-    MatDividerModule,
-    MatBadgeModule,
+    FormsModule,
+    ReactiveFormsModule,
     GoogleChartsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

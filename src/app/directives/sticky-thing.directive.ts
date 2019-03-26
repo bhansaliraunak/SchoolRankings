@@ -179,7 +179,7 @@ export class StickyThingDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private checkSetup() {
-    console.log('HELLO WORLD');
+    console.log('................SCHOOL RANKINGS................');
     if (isDevMode() && !this.spacerElement) {
       console.warn(`******There might be an issue with your sticky directive!******
 
