@@ -31,10 +31,10 @@ export class DashboardComponent implements OnInit {
     page = 1;
 
     ngOnInit() {
-        this.getData(this.page);
+        this.getData();
     }
 
-    getData(page: number) {
+    getData() {
       this.http.get('http://localhost:8000/api/v1/schools')
             .pipe(map((response: any) => response))
             .subscribe((data: any) => {
