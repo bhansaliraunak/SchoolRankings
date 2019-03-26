@@ -6,7 +6,6 @@ import { PagerService } from '../services/pager.service';
 import { SchoolService } from '../services/school.service';
 import { School } from '../model/school';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,7 +14,7 @@ import { School } from '../model/school';
 })
 export class DashboardComponent implements OnInit {
 
-
+  
   constructor(private http: HttpClient, private pagerService: PagerService, private schoolService: SchoolService) { }
 
     // array of all items to be paged
@@ -63,3 +62,4 @@ export class DashboardComponent implements OnInit {
 
 
   }
+
