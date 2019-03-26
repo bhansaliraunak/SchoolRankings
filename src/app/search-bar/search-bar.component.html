@@ -4,31 +4,17 @@
   <div class="container">
     <h2 class="text-center color-orange">SCHOOL RANKINGS</h2>
     <div class="single_sidebar_widget search_widget">
-      <!-- Current Search Bar -->
-      <div class="input-group">
-        <input #nameInput matInput type="text" class="form-control" placeholder="Search Schools..."
-          [formControl]="stateCtrl" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
-            <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
-            <span>{{state.name}}</span> |
-            <small>Population: {{state.population}}</small>
-          </mat-option>
-        </mat-autocomplete>
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-        </span>
-      </div>
 
       <!-- Full text search -->
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="mt-3">
           <div class="input-group mb-3">
-              <input formControlName="term" type="text" class="form-control" placeholder="Search Schools...">
+              <input formControlName="term" type="text" class="form-control" placeholder="Search Schools | Cities | States">
               <div class="input-group-btn">
-                <button class="btn btn-success" [disabled]="!searchForm.valid" type="submit"><i class="lnr lnr-magnifier"></i> Search</button>
+                <button class="btn btn-success" [disabled]="!searchForm.valid" type="submit"><i class="lnr lnr-magnifier"></i></button>
               </div>
             </div>
       </form>
+    
     </div>
   </div>
 </section>

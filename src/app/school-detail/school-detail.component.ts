@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SchoolDetailService } from '../services/school-detail.service';
-import { SchoolData } from '../model/school';
+import { SchoolService } from '../services/school.service';
+import { School } from '../model/school';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-school-detail',
   templateUrl: './school-detail.component.html',
-  styleUrls: ['./school-detail.component.css'],
-  providers: [SchoolDetailService]
+  styleUrls: ['./school-detail.component.css']
 })
 export class SchoolDetailComponent implements OnInit {
-  school: SchoolData[];
+  school: School[];
   id: Number;
 
   public pie_ChartData = [
@@ -37,11 +37,15 @@ export class SchoolDetailComponent implements OnInit {
     bar: { groupWidth: '50%' }
   };
 
+  assetsUrl;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private route: Router,
-    private schoolDetailService: SchoolDetailService
-  ) {}
+    private schoolService: SchoolService,
+    private sanitizer: DomSanitizer
+  ) {
+   
+  }
 
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.params.id;
@@ -49,8 +53,10 @@ export class SchoolDetailComponent implements OnInit {
   }
 
   async getSchool(id: Number) {
-    await this.schoolDetailService.getSchoolById(this.id).subscribe(data => {
+    await this.schoolService.getSchoolById(this.id).subscribe(data => {
       this.school = data;
+      this.assetsUrl = this.sanitizer.bypassSecurityTrustStyle(`url(`+Object.values(this.school)[11]+`)`);
+      
     });
   }
 }

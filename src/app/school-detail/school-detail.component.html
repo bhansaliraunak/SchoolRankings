@@ -1,12 +1,12 @@
 <app-navigation-menu></app-navigation-menu>
 <section class="breadcrumb_area blog_banner_two">
-   <div class="overlay bg-parallax" style="background: url('/assets/image/schools/stannes_jodh.jpg')" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+   <div class="overlay bg-parallax" [style.background-image]="assetsUrl"> data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
    <div class="container">
       <div class="page-cover text-center">
          <h2 class="page-cover-tittle f_48"> {{school?.school_name}}</h2>
          <ol class="breadcrumb">
-            <li><a href="index.html"></a>{{school?.school_cityarea}}</li>
-            <li><a href="blog.html">{{school?.school_city}}</a></li>
+            <li>{{school?.school_areacity}}</li>
+            <li>{{school?.school_city}}</li>
             <li class="active">{{school?.school_state}}</li>
          </ol>
       </div>
@@ -23,24 +23,28 @@
                      <div id="side-nav" class="span side-nav">
                         <div class="block-slacker">
                            <ul class="side-nav-group has-children">
-                              <li class="side-nav-item">
+                              <li class="side-nav-item is-locked">
                                  <a class="" href=" ">Overview</a>
                                  <ul class="side-nav-group has-children">
-                                    <li class="side-nav-item  is-locked">
-                                       <a class="is-locked" href="">
+                                    <li class="side-nav-item">
+                                       <a class="" [routerLink]="['/school',school?._id]">
                                        <span matBadgeColor="warn" matBadge="60" matBadgeOverlap="false"> Pre-Primary </span></a>
                                     </li>
                                     <li class="side-nav-item  is-locked">
                                        <a class=" is-locked" href=" ">
-                                       <span matBadgeColor="warn" matBadge="30" matBadgeOverlap="false">Primary I</span></a>
+                                       <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Primary</span></a>
                                     </li>
                                     <li class="side-nav-item  is-locked">
                                        <a class=" is-locked" href=" ">
-                                       <span matBadgeColor="warn" matBadge="40" matBadgeOverlap="false">Primary II</span></a>
+                                       <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Middle</span></a>
                                     </li>
-                                    <li class="side-nav-item  is-locked">
-                                       <a class=" is-locked" href=" ">
-                                       <span matBadgeColor="warn" matBadge="20" matBadgeOverlap="false">Secondary</span></a>
+                                    <li class="side-nav-item">
+                                       <a class="" href=" ">
+                                       <span matBadgeColor="warn" matBadge="40" matBadgeOverlap="false">Secondary</span></a>
+                                    </li>
+                                    <li class="side-nav-item is-locked">
+                                          <a class=" is-locked" href=" ">
+                                          <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Senior Secondary</span></a>
                                     </li>
                                  </ul>
                               </li>
@@ -67,11 +71,10 @@
                                  <div>
                                     <h4 class="t-flush">Address</h4>
                                     <p class="t-slack t-tight">
-                                       No-5,6,8 <br /> 
-                                       Heggondahalli Village <br />
-                                       Whitefield Sarjapur <br /> Main Road <br />
-                                       Gunjur Post <br />
-                                       Bangalore-560087
+                                       {{school?.school_address_1}} <br /> 
+                                       {{school?.school_address_2}} <br />
+                                       
+                                       {{school?.school_city}}
                                     </p>
                                  </div>
                               </div>
@@ -79,7 +82,7 @@
                                  <div>
                                     <h4 class="t-flush">Students</h4>
                                     <p class="t-flush t-tight">
-                                       <span>672</span> <span class="t-small t-subdued"> studying</span>
+                                       <span>{{school?.school_total_students_count}}</span> <span class="t-small t-subdued"> studying</span>
                                     </p>
                                  </div>
                               </div>
@@ -100,23 +103,11 @@
                               <h1 class="free_overview even">School Overview</h1>
                               <a name="mlib"></a>
                               <p style="font-size: 16px">
-                                 The Business School at Harvard University offers these departments and concentrations: 
-                                 accounting, consulting, e-commerce, economics, entrepreneurship, ethics, finance, general management, 
-                                 health care administration, human resources management, international business, leadership, 
-                                 manufacturing and technology management, marketing, not-for-profit management, 
-                                 production/operations management, organizational behavior, portfolio management, 
-                                 public administration, public policy, real estate, sports business, supply chain management/logistics, 
-                                 quantitative analysis/statistics and operations research, tax, and technology. 
-                                 Its tuition is full-time: $61,225 per year. At graduation, 81.0 percent of graduates of the 
-                                 full-time program are employed.
+                                 {{school?.school_overview_1}}
                               </p>
                               <a name="blurb"></a>
                               <p style="font-size: 16px">
-                                 Graduate students at Harvard Business School get a hands-on education through the case method, 
-                                 which poses true-to-life problems students must tackle in teams. 
-                                 The experiential learning extends to field study teams, 
-                                 in which small groups of students evaluate existing organizations, and immersion trips, 
-                                 intense weeks of study in another country over winter breaks.
+                                 {{school?.school_overview_2}}
                               </p>
                            </div>
                            <mat-divider></mat-divider>
@@ -131,7 +122,7 @@
                                        </td>
                                        <td class="column-last">
                                           <span>
-                                          In-process
+                                          {{school?.school_application_status}}
                                           </span>
                                        </td>
                                     </tr>
@@ -142,27 +133,27 @@
                                        </td>
                                        <td class="column-last">
                                           <span>
-                                          April 4th
+                                          {{school?.school_application_deadline}}
                                           </span>
                                        </td>
                                     </tr>
                                     <tr class="complex-value g_ft_applicants row-odd">
                                        <td class="column-first">
-                                          Total Seats Remaining
+                                          Total Seats Across
                                        </td>
                                        <td class="column-last" >
                                           <span>
-                                          100
+                                          {{school?.school_total_seats_count}}
                                           </span>
                                        </td>
                                     </tr>
                                     <tr class="complex-value g_ft_applicants row-odd">
                                        <td class="column-first">
-                                          Students Applied
+                                          Seats Remaining
                                        </td>
                                        <td class="column-last" >
                                           <span>
-                                          80
+                                          {{school?.school_seats_remaining_count}}
                                           </span>
                                        </td>
                                     </tr>
@@ -182,7 +173,7 @@
                                     </td>
                                     <td class="column-last" data-test-id="mlb_ft_enrolled_dir_pg">
                                        <span>
-                                       1,872
+                                       {{school?.school_total_students_count}}
                                        </span>     
                                     </td>
                                  </tr>

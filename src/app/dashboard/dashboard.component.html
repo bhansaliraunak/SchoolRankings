@@ -9,11 +9,11 @@
           <div class="box-content-inner clearfix">
             <div class="list-event-thumb">
               <a>
-                <img src="/assets/image/school_logo.jpg" alt="">
+                <img src="{{item?.school_imageUrl_157_157_jpg}}" alt="">
               </a>
             </div>
             <div class="list-event-header">
-              <span class="event-place"><i class="fas fa-globe"></i>{{item?.school_cityarea}}</span>
+              <span class="event-place"><i class="fas fa-globe"></i>{{item?.school_areacity}}</span>
               <span class="event-place"><i
                   [ngClass]="(item?.school_admission_status=='Open')?'fa fa-thumbs-up': (item?.school_admission_status=='Close')?'fa fa-thumbs-down':'fa fa-exclamation-triangle'"></i>Admissions
                 {{item?.school_admission_status}}</span>
