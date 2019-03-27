@@ -31,6 +31,8 @@ export interface School {
   school_females_count: number
 }
 
+
+
 export class SchoolModel implements School {
   constructor(public keywords: [],public _id: string,
     public school_name: string,

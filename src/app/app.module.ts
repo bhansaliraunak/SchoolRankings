@@ -18,7 +18,10 @@ import { GrdFilterPipe } from './pipes/grd-filter.pipe';
 import { StickyThingDirective} from './directives/sticky-thing.directive';
 import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-
+import { PrePrimaryComponent } from './pre-primary/pre-primary.component';
+import { SchoolBannerTitleComponent } from './school-banner-title/school-banner-title.component';
+import { QuickStatsComponent } from './quick-stats/quick-stats.component';
+import { SchoolTabsNavComponent } from './school-tabs-nav/school-tabs-nav.component';
 
 
 @NgModule({
@@ -33,7 +36,11 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     GrdFilterPipe,
     StickyThingDirective,
     GoogleChartComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PrePrimaryComponent,
+    SchoolBannerTitleComponent,
+    QuickStatsComponent,
+    SchoolTabsNavComponent
   ],
   imports: [
     BrowserModule,

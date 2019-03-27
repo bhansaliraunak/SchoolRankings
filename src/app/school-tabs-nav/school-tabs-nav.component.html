@@ -1,0 +1,33 @@
+<div class="left-event-content">
+   <div id="side-nav" class="span side-nav">
+      <div class="block-slacker">
+         <ul class="side-nav-group has-children">
+            <li class="side-nav-item is-locked">
+               <a class="" [routerLink]="['/school',school?._id]">Overview</a>
+               <ul class="side-nav-group has-children">
+                  <li class="side-nav-item is-locked">
+                     <a *ngIf="school" class="" [routerLink]="['/school/pre-primary',school?.school_pre_primary_school_ref_id]">
+                        <span matBadgeColor="warn" matBadge="60" matBadgeOverlap="false"> Pre-Primary </span></a>
+                  </li>
+                  <li class="side-nav-item  is-locked">
+                     <a class=" is-locked" href=" ">
+                        <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Primary</span></a>
+                  </li>
+                  <li class="side-nav-item  is-locked">
+                     <a class=" is-locked" href=" ">
+                        <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Middle</span></a>
+                  </li>
+                  <li class="side-nav-item">
+                     <a class="" href=" ">
+                        <span matBadgeColor="warn" matBadge="40" matBadgeOverlap="false">Secondary</span></a>
+                  </li>
+                  <li class="side-nav-item is-locked">
+                     <a class=" is-locked" href=" ">
+                        <span matBadgeColor="cool" matBadge="0" matBadgeOverlap="false">Senior Secondary</span></a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>

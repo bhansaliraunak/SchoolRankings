@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SchoolService } from '../services/school.service';
-import { School } from '../model/school';
-import { DomSanitizer } from '@angular/platform-browser';
+import { School} from '../model/school';
 
 @Component({
   selector: 'app-school-detail',
   templateUrl: './school-detail.component.html',
   styleUrls: ['./school-detail.component.css']
 })
+
+
 export class SchoolDetailComponent implements OnInit {
   school: School[];
   id: Number;
@@ -37,26 +38,25 @@ export class SchoolDetailComponent implements OnInit {
     bar: { groupWidth: '50%' }
   };
 
-  assetsUrl;
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private route: Router,
-    private schoolService: SchoolService,
-    private sanitizer: DomSanitizer
-  ) {
-   
-  }
+    private schoolService: SchoolService
+  ) { }
 
   ngOnInit() {
+
     this.id = this._activatedRoute.snapshot.params.id;
     this.getSchool(this.id);
+
   }
 
   async getSchool(id: Number) {
+
     await this.schoolService.getSchoolById(this.id).subscribe(data => {
       this.school = data;
-      this.assetsUrl = this.sanitizer.bypassSecurityTrustStyle(`url(`+Object.values(this.school)[11]+`)`);
-      
+      localStorage.setItem('school', JSON.stringify(this.school));
     });
+
   }
+
 }

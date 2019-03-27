@@ -17,11 +17,13 @@ export class SchoolService {
   }
 
   getSchoolById(id: Number): Observable<School[]> {
-    const url = `${this.schoolsUrl}/`+id;
+    const url = `${this.schoolsUrl}/` + id;
     return this.http.get<School[]>(url).pipe(map(items => items));
   }
+
   searchSchools(term: string): Observable<School[]> {
     const url = `${this.schoolsUrl}/search/${term}`;
     return this.http.get<School[]>(url);
   }
+
 }

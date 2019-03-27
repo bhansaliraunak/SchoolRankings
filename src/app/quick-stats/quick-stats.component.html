@@ -1,0 +1,44 @@
+<div class="quick-stats">
+   <div class="block-slacker">
+      <div class="clearfix ">
+         <span class="rankings-category is_ranked" title="Overall Score: 100 out of 100">
+            <a class="t-strong" href=" "></a>
+         </span>
+      </div>
+   </div>
+   <div class="clearfix">
+      <div class="map">
+         <img src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.9100284382976!2d73.01690731435016!3d26.232112795372963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418b8d1b564545%3A0x38f74af47994e76d!2sST.+ANNE&#39;S+SCHOOL+Jodhpur!5e0!3m2!1sen!2sin!4v1552738707704" />
+      </div>
+      <h3 class="h h-slacker">2019 Quick Stats</h3>
+      <div class="icon-quick-stats icon-location">
+         <div>
+            <h4 class="t-flush">Address</h4>
+            <p class="t-slack t-tight">
+               {{school?.school_address_1}} <br />
+               {{school?.school_address_2}} <br />
+
+               {{school?.school_city}}
+            </p>
+         </div>
+      </div>
+      <div class="icon-quick-stats icon-person block-slack">
+         <div>
+            <h4 class="t-flush">Students</h4>
+            <p class="t-flush t-tight">
+               <span>{{school?.school_total_students_count}}</span> <span class="t-small t-subdued"> studying</span>
+            </p>
+         </div>
+      </div>
+      <div class="icon-quick-stats icon-dollar block-slack">
+         <div>
+            <h4 class="t-flush">Admission Fee</h4>
+            <p class="t-flush t-tight">
+               <span>Rs 160,333</span> <span class="t-small t-subdued"> total</span>
+            </p>
+         </div>
+      </div>
+      <span class="t-subdued">&#8226;</span>
+      <a target="_blank" class="t-strong" id="moreinfo_link" href={{school?.school_official_url}}> More Information</a>
+   </div>
+</div>

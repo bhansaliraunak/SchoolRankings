@@ -13,4 +13,5 @@ export class SettingsService {
   getApiUrl() {
     return `${this.baseUrl}${this.basePath}`;
   }
+  
 }
