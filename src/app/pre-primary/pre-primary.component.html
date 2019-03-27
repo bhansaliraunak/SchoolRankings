@@ -19,18 +19,6 @@
                         <app-quick-stats></app-quick-stats>
 
                         <div class="datadict is-overview">
-                           <div id="directoryPageSection-free_overview" class="data-item">
-                              <h1 class="free_overview even">School Overview</h1>
-                              <a name="mlib"></a>
-                              <p style="font-size: 16px">
-                                 {{school?.school_overview_1}}
-                              </p>
-                              <a name="blurb"></a>
-                              <p style="font-size: 16px">
-                                 {{school?.school_overview_2}}
-                              </p>
-                           </div>
-
                            <mat-divider></mat-divider>
 
                            <div class="data-item">
@@ -65,7 +53,7 @@
                                        </td>
                                        <td class="column-last">
                                           <span>
-                                             {{school?.school_total_seats_count}}
+                                             {{prePrimaryAsync?.pre_primary_school_seats_count}}
                                           </span>
                                        </td>
                                     </tr>
@@ -75,14 +63,14 @@
                                        </td>
                                        <td class="column-last">
                                           <span>
-                                             {{school?.school_seats_remaining_count}}
+                                             {{prePrimaryAsync?.pre_primary_school_seats_remaining_count}}
                                           </span>
                                        </td>
                                     </tr>
                                  </tbody>
                               </table>
-                              <div style="width: 400px; height: 400px;" id="pie_chart" [chartData]="pie_ChartData"
-                                 [chartOptions]="pie_ChartOptions" chartType="BarChart" GoogleChart>
+                              <div style="width: 400px; height: 400px;" id="bar_chart" [chartData]="bar_ChartData"
+                                 [chartOptions]="bar_ChartOptions" chartType="BarChart" GoogleChart>
                               </div>
                            </div>
 

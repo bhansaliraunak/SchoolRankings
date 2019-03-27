@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatBadgeModule } from '@angular/material/badge';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
@@ -20,7 +18,10 @@ import { GrdFilterPipe } from './pipes/grd-filter.pipe';
 import { StickyThingDirective} from './directives/sticky-thing.directive';
 import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-
+import { PrePrimaryComponent } from './pre-primary/pre-primary.component';
+import { SchoolBannerTitleComponent } from './school-banner-title/school-banner-title.component';
+import { QuickStatsComponent } from './quick-stats/quick-stats.component';
+import { SchoolTabsNavComponent } from './school-tabs-nav/school-tabs-nav.component';
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     GrdFilterPipe,
     StickyThingDirective,
     GoogleChartComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PrePrimaryComponent,
+    SchoolBannerTitleComponent,
+    QuickStatsComponent,
+    SchoolTabsNavComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +48,12 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    MatTabsModule,
-    MatDividerModule,
-    MatBadgeModule,
+    FormsModule,
+    ReactiveFormsModule,
     GoogleChartsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

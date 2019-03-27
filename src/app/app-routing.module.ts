@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SchoolDetailComponent } from './school-detail/school-detail.component';
+import { PrePrimaryComponent } from './pre-primary/pre-primary.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,22 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'school/:id',
-    component: SchoolDetailComponent
+    path: 'school',
+    children: [
+      {
+        path: ':id',
+        component: SchoolDetailComponent
+      },
+      {
+        path: 'pre-primary',
+        children: [
+          {
+            path: ':id',
+            component: PrePrimaryComponent
+          }
+        ]
+      }
+    ]
   },
   {
     path: 'search',
