@@ -94,7 +94,10 @@
                                        <td class="column-first" colspan="2">
                                           Gender distribution (full-time)
                                           <span class="footnote">
-                                             <a style="cursor: help" href="">
+                                             <a style="cursor: help">
+                                                   <div style="width: 400px; height: 400px;" id="pie_chart" [chartData]="pie_ChartData"
+                                                   [chartOptions]=" pie_ChartOptions" chartType="PieChart" GoogleChart>
+                                            </div>
                                              </a>
                                           </span>
                                        </td>

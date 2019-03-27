@@ -22,7 +22,7 @@
                            <div id="directoryPageSection-free_overview" class="data-item">
                               <h1 class="free_overview even">School Overview</h1>
                               <a name="mlib"></a>
-                              <p style="font-size: 16px">
+                              <p>
                                  {{school?.school_overview_1}}
                               </p>
                               <a name="blurb"></a>
@@ -81,8 +81,8 @@
                                     </tr>
                                  </tbody>
                               </table>
-                              <div style="width: 400px; height: 400px;" id="pie_chart" [chartData]="pie_ChartData"
-                                 [chartOptions]="pie_ChartOptions" chartType="BarChart" GoogleChart>
+                              <div style="width: 400px; height: 400px;" id="bar_chart" [chartData]="bar_ChartData"
+                                 [chartOptions]="bar_ChartOptions" chartType="BarChart" GoogleChart>
                               </div>
                            </div>
 
@@ -106,7 +106,10 @@
                                        <td class="column-first" colspan="2">
                                           Gender distribution (full-time)
                                           <span class="footnote">
-                                             <a style="cursor: help" href="">
+                                             <a style="cursor: help">
+                                                   <div style="width: 400px; height: 400px;" id="pie_chart" [chartData]="pie_ChartData"
+                                                   [chartOptions]=" pie_ChartOptions" chartType="PieChart" GoogleChart>
+                                                </div>
                                              </a>
                                           </span>
                                        </td>
@@ -114,63 +117,9 @@
                                  </tbody>
                               </table>
                            </div>
+                           
                            <mat-divider></mat-divider>
-                           <div id="directoryPageSection-free_cost" class="data-item">
-                              <h3 class="free_cost even">Cost</h3>
-                              <table class="fields free_cost">
-                                 <tbody>
-                                    <tr class="complex-value complete_tuition row-first row-odd">
-                                       <td class="column-first" colspan="2">
-                                          Tuition
-                                          <span class="footnote">
-                                             <a style="cursor: help" href="">
-                                                <sup></sup>
-                                             </a>
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr class="extra-row complete_tuition-extra-row">
-                                       <td colspan="2">
-                                          <p>full-time: Rs 80,333 (including one time Registration fee)</p>
-                                          <p>full-time: Rs 40,333 (excluding one time Registration fee)</p>
-                                       </td>
-                                    </tr>
-                                    <tr class="v_student_fees row-even">
-                                       <td class="column-first">
-                                          Registration fee
-                                          <sup></sup>
-                                       </td>
-                                       <td class="column-last" data-test-id="v_student_fees">
-                                          <span>
-                                             Rs 40,000 one time
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr class="v_pt_student_fees row-odd">
-                                       <td class="column-first">
-                                          Tuition fee
-                                          <sup></sup>
-                                       </td>
-                                       <td class="column-last" data-test-id="v_pt_student_fees">
-                                          <span>
-                                             Rs 25,333 per term
-                                          </span>
-                                       </td>
-                                    </tr>
-                                    <tr class="v_exe_student_fees row-last row-even">
-                                       <td class="column-first">
-                                          Annual fee
-                                          <sup></sup>
-                                       </td>
-                                       <td class="column-last" data-test-id="v_exe_student_fees">
-                                          <span>
-                                             Rs 15,000 per year
-                                          </span>
-                                       </td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
+                          
                         </div>
                      </div>
                   </div>

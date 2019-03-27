@@ -19,7 +19,33 @@ export class PrePrimaryComponent implements OnInit, AfterContentInit {
   remSeats: number;
 
   public bar_ChartData = [];
+  public pie_ChartData = [
+    ['Distribution', 'Gender'],
+    ['Female', 291],
+    ['Male', 352]
+  ];
 
+  public pie_ChartOptions = {
+    pieHole: 0.8,
+    pieSliceTextStyle: {
+        color: 'black',
+    },
+    slices: {
+        0: {color: '#7ec252'},
+        1: {color: '#cfe4ad'}
+    },
+    legend: {
+        position: 'bottom',
+        textStyle: {
+            color: 'black',
+            fontSize: 13,
+            fontName: 'EncodeSans'
+        }
+    },
+    title: 'Distribution',
+    chartArea: {left: 0, top: 60, width: '100%', height: '60%'},
+    pieSliceText: 'none'
+};
 
   public bar_ChartOptions = {
     title: 'Students',
