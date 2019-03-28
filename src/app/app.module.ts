@@ -22,6 +22,7 @@ import { PrePrimaryComponent } from './pre-primary/pre-primary.component';
 import { SchoolBannerTitleComponent } from './school-banner-title/school-banner-title.component';
 import { QuickStatsComponent } from './quick-stats/quick-stats.component';
 import { SchoolTabsNavComponent } from './school-tabs-nav/school-tabs-nav.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SchoolTabsNavComponent } from './school-tabs-nav/school-tabs-nav.compon
     PrePrimaryComponent,
     SchoolBannerTitleComponent,
     QuickStatsComponent,
-    SchoolTabsNavComponent
+    SchoolTabsNavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

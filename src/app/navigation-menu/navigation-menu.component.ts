@@ -18,10 +18,10 @@ import { AngularStickyThingsModule } from '../directives/angular-sticky-things.m
 export class NavigationMenuComponent implements OnInit {
 
 
-  navMenu: string[];
+  navMenu: any;
 
   constructor() {
-    this.navMenu = ['Home', 'About Us', 'Contact'];
+    this.navMenu = { 'home': 'Home', 'login':'Login'};
 
     }
 

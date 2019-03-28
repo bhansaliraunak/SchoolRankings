@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SchoolDetailComponent } from './school-detail/school-detail.component';
 import { PrePrimaryComponent } from './pre-primary/pre-primary.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: DashboardComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',
