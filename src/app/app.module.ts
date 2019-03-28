@@ -23,6 +23,7 @@ import { SchoolBannerTitleComponent } from './school-banner-title/school-banner-
 import { QuickStatsComponent } from './quick-stats/quick-stats.component';
 import { SchoolTabsNavComponent } from './school-tabs-nav/school-tabs-nav.component';
 import { LoginComponent } from './login/login.component';
+import { LoginDirective } from './login.directive';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { LoginComponent } from './login/login.component';
     SchoolBannerTitleComponent,
     QuickStatsComponent,
     SchoolTabsNavComponent,
-    LoginComponent
+    LoginComponent,
+    LoginDirective
   ],
   imports: [
     BrowserModule,
