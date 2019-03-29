@@ -1,30 +1,37 @@
-import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, HostBinding, Renderer2 } from '@angular/core';
 import { EventManager } from '@angular/platform-browser';
+import { EventManagerPlugin } from '@angular/platform-browser/src/dom/events/event_manager';
 
 @Directive({
   selector: '[appLogin]'
 })
+
 export class LoginDirective {
 
-  constructor(private ele: ElementRef, private renderer: Renderer, private eventManager: EventManager) { }
+  constructor(private ele: ElementRef, private renderer: Renderer2, private eventManager: EventManager) { }
   
   
-  @HostListener('click') onclick() {
-    
-   
+  @HostListener('document:click',['$event']) onclick() {
+
     var signIn= document.getElementById('signIn');
     var signUp = document.getElementById('signUp');
     var container = document.getElementById('container');    
 
-    this.eventManager.addEventListener(signUp, 'click', ()=>{
-        this.renderer.setElementClass(container,'right-panel-active', true);
+    this.eventManager.addEventListener(signUp, 'click', (event)=>{
+      event.stopPropagation();
+      console.log('ENTERED!!!');
+        this.renderer.addClass(container,'right-panel-active');
+        console.log(container);
     });
     
     this.eventManager.addEventListener(signIn, 'click', ()=>{
-      this.renderer.setElementClass(container,'right-panel-active', false);
+      this.renderer.removeClass(container,'right-panel-active');
   });
+
+ 
   
   
   }
+
 
 }

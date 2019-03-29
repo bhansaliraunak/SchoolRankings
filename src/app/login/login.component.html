@@ -1,5 +1,4 @@
-<app-navigation-menu></app-navigation-menu>
-<div class="container" id="container">
+<div class="container" id="container" appLogin>
   <div class="form-container sign-up-container">
       <!-- Sign Up form code goes here -->
   </div>
@@ -9,9 +8,10 @@
   <div class="overlay-container">
       <!-- The overlay code goes here -->
   </div>
-</div>
-<div class="form-container sign-up-container" appLogin>
+
+<div class="form-container sign-up-container">
   <form action="#">
+        <a href="#"><img src="/assets/image/nav-logo.png"/></a>
       <h1>Create Account</h1>
       <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -27,6 +27,7 @@
 </div>
 <div class="form-container sign-in-container">
   <form (ngSubmit)="login()">
+      <a href="#"><img src="/assets/image/nav-logo.png"/></a>
       <h1>Sign in</h1>
       <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -47,12 +48,14 @@
           <p>
               To keep connected with us please login with your personal info
           </p>
+         
           <button class="ghost" id="signIn">Sign In</button>
       </div>
-      <div class="overlay-panel overlay-right" appLogin>
+      <div class="overlay-panel overlay-right" >
           <h1>Hello, Parents!</h1>
           <p>Enter your personal details and start journey with us</p>
           <button class="ghost" id="signUp">Sign Up</button>
       </div>
   </div>
+</div>
 </div>

@@ -1,9 +1,6 @@
-import {  Component, OnInit, AfterViewInit } from '@angular/core';
+import {  Component, OnInit, AfterViewInit, ElementRef, ViewContainerRef, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-login',
@@ -12,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   
+
   email: string;
   password: string;
 
@@ -23,14 +21,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-   
-  }
 
+  }
 
   login(){
     this.router.navigateByUrl('/');
   }
-
-  
 
 }
