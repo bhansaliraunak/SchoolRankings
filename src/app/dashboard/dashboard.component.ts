@@ -37,6 +37,8 @@ export class DashboardComponent implements OnInit {
             position => {
                 this.geolocationPosition = position,
                     console.log(position);
+this.getData(position.coords.latitude+','+position.coords.longitude);
+          
             },
             error => {
                 switch (error.code) {
@@ -55,17 +57,17 @@ export class DashboardComponent implements OnInit {
     };
 
    
-        this.getData();
+        //this.getData();
     }
 
-    getData() {
-      this.http.get('http://localhost:8000/api/v1/schools')
-            .pipe(map((response: any) => response))
-            .subscribe((data: any) => {
-                // set items to json response
+    getData(data) {
+      console.log('ENTERED!!!');
+      this.schoolService.getGeoLocSchools(data)
+            .subscribe(data => {
+              console.log('Data: ', data);
               this.allItems = data;
-              this.setPage(1);
-            });
+                this.setPage(1);
+            })
     }
 
     setPage(page: number) {

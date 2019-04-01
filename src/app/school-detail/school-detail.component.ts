@@ -16,8 +16,8 @@ export class SchoolDetailComponent implements OnInit {
 
   public pie_ChartData = [
     ['Distribution', 'Gender'],
-    ['Female', 291],
-    ['Male', 352]
+    ['Girls', 291],
+    ['Boys', 352]
   ];
 
   public bar_ChartData = [
@@ -54,14 +54,9 @@ export class SchoolDetailComponent implements OnInit {
         1: {color: '#cfe4ad'}
     },
     legend: {
-        position: 'bottom',
-        textStyle: {
-            color: 'black',
-            fontSize: 13,
-            fontName: 'EncodeSans'
-        }
+        position: 'bottom'
     },
-    title: 'Distribution',
+    title: 'Segregation',
     chartArea: {left: 0, top: 60, width: '100%', height: '60%'},
     pieSliceText: 'none'
 };

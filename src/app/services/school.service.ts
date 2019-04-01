@@ -26,4 +26,9 @@ export class SchoolService {
     return this.http.get<School[]>(url);
   }
 
+ getGeoLocSchools(term: string): Observable<School[]>{
+    const url = `${this.schoolsUrl}/find/${term}`;
+    return this.http.get<School[]>(url);
+ }
+
 }
