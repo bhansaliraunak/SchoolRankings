@@ -61,7 +61,7 @@ this.getData(position.coords.latitude+','+position.coords.longitude);
     }
 
     getData(data) {
-      console.log('ENTERED!!!');
+      console.log('ENTERED!!!', data);
       this.schoolService.getGeoLocSchools(data)
             .subscribe(data => {
               console.log('Data: ', data);
